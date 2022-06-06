@@ -23,7 +23,19 @@ const Tabs = styled.div`
 const Active = styled.div`
   text-decoration: underline;
 `;
-const ConnectButtonWrapper = styled.div``;
+const ConnectButtonWrapper = styled.div`
+  button:nth-child(1) {
+    background-color: #fc642d;
+    box-sizing: content-box;
+  }
+  button span:first-child {
+    font-weight: normal;
+    color: white;
+  }
+
+  button :hover {
+  }
+`;
 
 export default function Header() {
   return (

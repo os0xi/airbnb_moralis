@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import background from "../../images/frontpagebg2.png";
+import background from "../../images/frontpagebg.png";
 
 const Container = styled.div`
   position: absolute;
