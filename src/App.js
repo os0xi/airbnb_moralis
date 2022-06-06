@@ -1,18 +1,19 @@
-import { CryptoCards, Button, ConnectButton } from "web3uikit";
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Background from "./components/Background/Background";
+import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Home from "./pages/Home";
+import Rentals from "./pages/Rentals";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <ConnectButton />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rentals" element={<Rentals />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

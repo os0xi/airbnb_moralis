@@ -8,10 +8,11 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-moralis": "^1.4.0",
     "react-scripts": "5.0.1",
+    "react-styled": "^0.0.5",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
-    "web3uikit": "^0.1.128"
+    "web3uikit": "^0.1.156"
   },
   "scripts": {
     "start": "react-scripts start",
