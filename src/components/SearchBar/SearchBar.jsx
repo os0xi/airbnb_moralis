@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Icon, ConnectButton, DatePicker, Select, Input } from "web3uikit";
@@ -87,12 +87,20 @@ const SearchIconContainer = styled.div`
     box-shadow: 0 0 15px #ccc;
   }
 `;
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const [guests, setGuests] = useState(2);
+  const [location, setLocation] = useState("New York");
+  const [checkin, setCheckin] = useState(new Date().toDateString());
+  const [checkout, setCheckout] = useState(new Date().toDateString());
+  // console.log(
+  //   `${guests} guests, in ${location}, starting ${checkin}, ending ${checkout}`
+  // );
   return (
     <SearchBarWrap>
       <Inputs>
         Location
         <StyledSelect
+          onChange={(e) => setLocation(e.label)}
           className="locationSelectMoralis"
           defaultOptionIndex={0}
           options={[
@@ -114,12 +122,14 @@ export default function SearchBar() {
       <VerticalLine />
       <Inputs>
         Check-in
-        <StyledDatePicker />
+        <StyledDatePicker onChange={(e) => setCheckin(e.date.toDateString())} />
       </Inputs>
       <VerticalLine></VerticalLine>
       <Inputs>
         Check-out
-        <StyledDatePicker />
+        <StyledDatePicker
+          onChange={(e) => setCheckout(e.date.toDateString())}
+        />
       </Inputs>
       <VerticalLine />
       <Inputs>
@@ -130,7 +140,7 @@ export default function SearchBar() {
           value={2}
           type="number"
           onBlur={function noRefCheck() {}}
-          onChange={function noRefCheck() {}}
+          onChange={(e) => setGuests(e.target.value)}
           state="confirmed"
           style={{
             outline: "none",
