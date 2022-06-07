@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Icon, ConnectButton, DatePicker, Select, Input } from "web3uikit";
@@ -92,11 +92,21 @@ export default function SearchBar(props) {
   const [location, setLocation] = useState("New York");
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
+  useEffect(() => {
+    // first
+    console.log("rendered");
+    return () => {
+      // second
+      console.log("unmounted");
+    };
+  });
+
   return (
     <SearchBarWrap>
       <Inputs>
         Location
         <StyledSelect
+          id="x"
           onChange={(e) => setLocation(e.label)}
           className="locationSelectMoralis"
           defaultOptionIndex={0}

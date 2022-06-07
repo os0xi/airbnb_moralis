@@ -27,17 +27,17 @@ const Active = styled.div`
   text-decoration: underline;
 `;
 const ConnectButtonWrapper = styled.div`
-  button:nth-child(1) {
-    background-color: #fc642d;
-    box-sizing: content-box;
-  }
-  button span:first-child {
-    font-weight: normal;
-    color: white;
-  }
+  // button:nth-child(1) {
+  //   background-color: #fc642d;
+  //   box-sizing: content-box;
+  // }
+  // button span:first-child {
+  //   font-weight: normal;
+  //   color: white;
+  // }
 
-  button :hover {
-  }
+  // button :hover {
+  // }
 `;
 const SearchBarWrap = styled.div`
   margin-left: auto;
