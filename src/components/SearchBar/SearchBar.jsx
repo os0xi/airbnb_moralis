@@ -151,7 +151,15 @@ export default function SearchBar(props) {
         />
       </Inputs>
 
-      <Link to={"/rentals"}>
+      <Link
+        to={"/rentals"}
+        state={{
+          location: location,
+          guests: guests,
+          checkin: checkin,
+          checkout: checkout,
+        }}
+      >
         <SearchIconContainer>
           <Icon size="24" svg="search" fill="#ffffff"></Icon>
         </SearchIconContainer>
