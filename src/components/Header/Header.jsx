@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ConnectButton } from "web3uikit";
-import logo from "../../images/airbnb.png";
+// import logo from "../../images/airbnb.png";
 
 const Headr = styled.div`
   padding: 2rem;
@@ -16,7 +16,9 @@ const Tabs = styled.div`
   width: 500px;
   display: flex;
   justify-content: space-evenly;
-  color: #ffffff;
+  color: ${(props) => {
+    return props.version == "light" ? "#000000" : "#ffffff";
+  }};
   font-size: 16px;
   font-weight: 600;
 `;
@@ -37,11 +39,14 @@ const ConnectButtonWrapper = styled.div`
   }
 `;
 
-export default function Header() {
+export default function Header(props) {
+  const logo = require(props.version === "light"
+    ? "../../images/airbnbRed.png"
+    : "../../images/airbnb.png");
   return (
     <Headr>
       <Logo src={logo} />
-      <Tabs>
+      <Tabs version={props.version}>
         <div className="active">Places to stay</div>
         <div>Experiences</div>
         <div>Online Experiences</div>
