@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ConnectButton } from "web3uikit";
 // import logo from "../../images/airbnb.png";
@@ -38,19 +39,63 @@ const ConnectButtonWrapper = styled.div`
   button :hover {
   }
 `;
-
+const SearchBarWrap = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 30px;
+  align-items: center;
+  padding: 0 1rem;
+  height: 65px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #ccc;
+`;
+const VerticalLine = styled.div`
+  position: relative;
+  top: 15;
+  height: 40%;
+  background-color: grey;
+  width: 1.5px;
+  position: relative;
+  top: 15;
+  height: 40%;
+  background-color: grey;
+  width: 1.5px;
+`;
 export default function Header(props) {
   const logo = require(props.version === "light"
     ? "../../images/airbnbRed.png"
     : "../../images/airbnb.png");
   return (
     <Headr>
-      <Logo src={logo} />
-      <Tabs version={props.version}>
-        <div className="active">Places to stay</div>
-        <div>Experiences</div>
-        <div>Online Experiences</div>
-      </Tabs>
+      <Link to="/">
+        <Logo src={logo} />
+      </Link>
+      {props.page == "home" ? (
+        <Tabs version={props.version}>
+          <div className="active">Places to stay</div>
+          <div>Experiences</div>
+          <div>Online Experiences</div>
+        </Tabs>
+      ) : (
+        <SearchBarWrap>
+          <div>{props.location}</div>
+          <VerticalLine />
+          <div>{`
+          ${props.checkin.toLocaleString("default", { month: "short" })}
+          ${props.checkin.toLocaleString("default", { day: "2-digit" })}
+          -
+          ${props.checkout.toLocaleString("default", { month: "short" })}
+          ${props.checkout.toLocaleString("default", { day: "2-digit" })}
+          `}</div>
+          <VerticalLine />
+          <div>{props.guests}</div>
+        </SearchBarWrap>
+      )}
       <ConnectButtonWrapper>
         <ConnectButton />
       </ConnectButtonWrapper>

@@ -90,11 +90,8 @@ const SearchIconContainer = styled.div`
 export default function SearchBar(props) {
   const [guests, setGuests] = useState(2);
   const [location, setLocation] = useState("New York");
-  const [checkin, setCheckin] = useState(new Date().toDateString());
-  const [checkout, setCheckout] = useState(new Date().toDateString());
-  // console.log(
-  //   `${guests} guests, in ${location}, starting ${checkin}, ending ${checkout}`
-  // );
+  const [checkin, setCheckin] = useState(new Date());
+  const [checkout, setCheckout] = useState(new Date());
   return (
     <SearchBarWrap>
       <Inputs>
@@ -122,14 +119,12 @@ export default function SearchBar(props) {
       <VerticalLine />
       <Inputs>
         Check-in
-        <StyledDatePicker onChange={(e) => setCheckin(e.date.toDateString())} />
+        <StyledDatePicker onChange={(e) => setCheckin(e.date)} />
       </Inputs>
       <VerticalLine></VerticalLine>
       <Inputs>
         Check-out
-        <StyledDatePicker
-          onChange={(e) => setCheckout(e.date.toDateString())}
-        />
+        <StyledDatePicker onChange={(e) => setCheckout(e.date)} />
       </Inputs>
       <VerticalLine />
       <Inputs>
@@ -150,7 +145,6 @@ export default function SearchBar(props) {
           }}
         />
       </Inputs>
-
       <Link
         to={"/rentals"}
         state={{

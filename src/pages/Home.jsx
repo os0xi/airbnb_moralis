@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <Background />
-      <Header />
+      <Header page="home" />
       <SearchBar />
       <HomeCallToAction />
     </>
